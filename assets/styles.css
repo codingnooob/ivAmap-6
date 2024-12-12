@@ -1,0 +1,9 @@
+/* assets/styles.css */
+@media only screen and (max-width: 4000px) {
+   html, body {
+       touch-action: pan-x pan-y;
+       margin: 0;
+       height: 100%;
+       overflow: hidden
+   }
+}
