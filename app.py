@@ -118,11 +118,34 @@ def update_output(_):
             },
             style={'width': '100%', 'height': '80vh'}
         )
+# app.py
+
+from flask import Flask
+from dash import Dash
+
 def create_app():
-    # Function to create and configure the app
-    app = dash.Dash(__name__)
-    # additional configuration here
-    return app
+    # Create and configure Flask app
+    server = Flask(__name__)
+
+    # Initialize the Dash app
+    dash_app = Dash(__name__, server=server, url_base_pathname='/dash')
+
+    # Example layout:
+    dash_app.layout = html.Div([
+    html.Meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'),
+    html.H1('iOS vs Android Market Share Map'),
+    html.Div(id='output-map')
+    ])
+
+    # Add any Dash callbacks below
+    # dash_app.callback(...)
+
+    # Flask route for the root path
+    @server.route('/')
+    def index():
+        return "Welcome to the Flask app with Dash integration"
+
+    return server
 # Run the app
 if __name__ == '__main__':
     app.run_server(debug=True)
