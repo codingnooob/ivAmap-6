@@ -120,7 +120,7 @@ def update_output(_):
         )
 def create_app():
     # Function to create and configure the app
-    app = Flask(__name__)
+    app = dash.Dash(__name__)
     # additional configuration here
     return app
 # Run the app
