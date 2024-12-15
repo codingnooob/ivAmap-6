@@ -138,7 +138,14 @@ def create_app():
     ])
 
     # Add any Dash callbacks below
-    # dash_app.callback(...)
+    dash_app.callback(
+    Output('output-map', 'children'),
+    Input('output-map', 'children')  # Dummy input to trigger the callback
+    )   
+    '''
+    def update_output(_):
+        return dcc.Graph(figure=fig, config={'displayModeBar': True, 'modeBarButtonsToRemove': ['select', 'lasso2d', 'autoScale2d'], 'displaylogo': False, 'scrollZoom': True}, style={'width': '100%', 'height': '80vh'})
+    '''
 
     # Flask route for the root path
     @server.route('/')
