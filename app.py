@@ -128,7 +128,7 @@ def create_app():
     server = Flask(__name__)
 
     # Initialize the Dash app
-    dash_app = Dash(__name__, server=server, url_base_pathname='/dash')
+    dash_app = Dash(__name__, server=server, url_base_pathname='/dash/')
 
     # Example layout:
     dash_app.layout = html.Div([
