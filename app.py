@@ -1,3 +1,4 @@
+from flask import Flask
 import pandas as pd
 import plotly.graph_objects as go
 import dash
@@ -117,7 +118,11 @@ def update_output(_):
             },
             style={'width': '100%', 'height': '80vh'}
         )
-
+def create_app():
+    # Function to create and configure the app
+    app = Flask(__name__)
+    # additional configuration here
+    return app
 # Run the app
 if __name__ == '__main__':
     app.run_server(debug=True)
